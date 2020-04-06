@@ -116,3 +116,27 @@ const contactPs = contact.querySelectorAll("p").forEach(function(item, index){
 
 //Footer
 const footer = document.querySelector("footer p").textContent = siteContent["footer"]["copyright"];
+
+//TASK 3!!!
+
+//Nav text color = green
+navLinks.forEach(function(item){
+  item.style.color = "green";
+});
+
+//New links using .appendChild() and .prepend()
+const nav = document.querySelector("nav");
+
+//.appendChild()
+const appendLink = document.createElement("a");
+appendLink.href = "#";
+appendLink.textContent = "Append Link";
+appendLink.style.color = "green";
+nav.appendChild(appendLink);
+
+//.prepend()
+const prependLink = document.createElement("a");
+prependLink.href = "#";
+prependLink.textContent = "Prepend Link";
+prependLink.style.color = "green";
+nav.prepend(prependLink);
