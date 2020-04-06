@@ -42,12 +42,27 @@ let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 //TASK 1 IMG SRCs
-let headerImg = document.querySelector("#cta-img");
-headerImg.src = siteContent["cta"]["img-src"];
-let middleImg = document.querySelector("#middle-img");
-middleImg.src = siteContent["main-content"]["middle-img-src"];
+const ctaImg = document.getElementById("cta-img");
+ctaImg.setAttribute("src", siteContent["cta"]["img-src"]);
+
+const midImg = document.getElementById("middle-img");
+midImg.setAttribute("src", siteContent["main-content"]["middle-img-src"]);
 
 //TASK 2 FILLING IN THE HTML WITH THE JSON OBJECT
+
+//Site Imgs
+
+//Logo in Nav
+const logoImg = document.querySelector("#logo-img");
+logoImg.src = siteContent["nav"]["img-src"];
+
+//Header Img
+const headerImg = document.querySelector("#cta-img");
+headerImg.src = siteContent["cta"]["img-src"];
+
+//Middle Img
+const middleImg = document.querySelector("#middle-img");
+middleImg.src = siteContent["main-content"]["middle-img-src"];
 
 //Nav Links
 const navLinks = document.querySelectorAll("nav a");
@@ -88,3 +103,16 @@ botContent.forEach(function(item){
   h4.textContent = content[count++];
   p.textContent = content[count++];
 });
+
+//Contact Section
+const contact = document.querySelector(".contact");
+
+const contactH4 = contact.querySelector("h4");
+contactH4.textContent = siteContent["contact"]["contact-h4"];
+
+const contactPs = contact.querySelectorAll("p").forEach(function(item, index){
+  item.textContent = Object.values(siteContent["contact"])[index + 1];
+});
+
+//Footer
+const footer = document.querySelector("footer p").textContent = siteContent["footer"]["copyright"];
