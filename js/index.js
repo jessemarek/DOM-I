@@ -41,7 +41,50 @@ const siteContent = {
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
+//TASK 1 IMG SRCs
 let headerImg = document.querySelector("#cta-img");
 headerImg.src = siteContent["cta"]["img-src"];
 let middleImg = document.querySelector("#middle-img");
 middleImg.src = siteContent["main-content"]["middle-img-src"];
+
+//TASK 2 FILLING IN THE HTML WITH THE JSON OBJECT
+
+//Nav Links
+const navLinks = document.querySelectorAll("nav a");
+navLinks.forEach(function(item, index){
+  item.textContent = siteContent["nav"][`nav-item-${index}`];
+});
+
+//CTA text
+const ctaText = document.querySelector(".cta-text h1").textContent = siteContent["cta"]["h1"];
+const ctaBtn = document.querySelector(".cta-text button").textContent = siteContent["cta"]["button"];
+
+//Main Content
+
+//Top Content
+const topContent = document.querySelectorAll(".top-content .text-content");
+let count = 0;
+
+topContent.forEach(function(item){
+  const content = Object.values(siteContent["main-content"])
+  const h4 = item.querySelector("h4");
+  const p = item.querySelector("p");
+
+  h4.textContent = content[count++];
+  p.textContent = content[count++];
+});
+
+//Increment past the middle img 
+count++;
+
+//Bottom Content
+const botContent = document.querySelectorAll(".bottom-content .text-content");
+
+botContent.forEach(function(item){
+  const content = Object.values(siteContent["main-content"])
+  const h4 = item.querySelector("h4");
+  const p = item.querySelector("p");
+
+  h4.textContent = content[count++];
+  p.textContent = content[count++];
+});
