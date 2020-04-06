@@ -41,14 +41,14 @@ const siteContent = {
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
-//TASK 1 IMG SRCs
+//********************************* TASK 1 IMG SRCs *************************************************
 const ctaImg = document.getElementById("cta-img");
 ctaImg.setAttribute("src", siteContent["cta"]["img-src"]);
 
 const midImg = document.getElementById("middle-img");
 midImg.setAttribute("src", siteContent["main-content"]["middle-img-src"]);
 
-//TASK 2 FILLING IN THE HTML WITH THE JSON OBJECT
+//**************************** TASK 2 FILLING IN THE HTML WITH THE JSON OBJECT************************
 
 //Site Imgs
 
@@ -67,7 +67,7 @@ middleImg.src = siteContent["main-content"]["middle-img-src"];
 //Nav Links
 const navLinks = document.querySelectorAll("nav a");
 navLinks.forEach(function(item, index){
-  item.textContent = siteContent["nav"][`nav-item-${index}`];
+  item.textContent = siteContent["nav"][`nav-item-${index + 1}`];
 });
 
 //CTA text
@@ -117,7 +117,7 @@ const contactPs = contact.querySelectorAll("p").forEach(function(item, index){
 //Footer
 const footer = document.querySelector("footer p").textContent = siteContent["footer"]["copyright"];
 
-//TASK 3!!!
+//******************** TASK 3!!! ************************************************************************
 
 //Nav text color = green
 navLinks.forEach(function(item){
