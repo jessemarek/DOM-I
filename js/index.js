@@ -143,12 +143,15 @@ nav.prepend(prependLink);
 
 //STRETCH GOAL
 const button = document.querySelector(".cta button");
-button.addEventListener("click", () => myButton());
+button.addEventListener("click", myButton);
 
 function myButton(){
   const body = document.querySelector("body");
 
-  const hexArr = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"];
+  const hexArr = ["0","1","2","3",
+                  "4","5","6","7",
+                  "8","9","A","B",
+                  "C","D","E","F"];
   let hexCode = "#";
 
   for(let i = 0; i < 6; i++){
