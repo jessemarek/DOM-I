@@ -71,7 +71,8 @@ navLinks.forEach(function(item, index){
 });
 
 //CTA text
-const ctaText = document.querySelector(".cta-text h1").textContent = siteContent["cta"]["h1"];
+const ctaText = document.querySelector(".cta-text h1");
+ctaText.innerHTML = siteContent.cta["h1"].replace(/ /g, '<br>');
 const ctaBtn = document.querySelector(".cta-text button").textContent = siteContent["cta"]["button"];
 
 //Main Content
@@ -79,9 +80,9 @@ const ctaBtn = document.querySelector(".cta-text button").textContent = siteCont
 //Top Content
 const topContent = document.querySelectorAll(".top-content .text-content");
 let count = 0;
+const content = Object.values(siteContent["main-content"])
 
 topContent.forEach(function(item){
-  const content = Object.values(siteContent["main-content"])
   const h4 = item.querySelector("h4");
   const p = item.querySelector("p");
 
@@ -96,7 +97,6 @@ count++;
 const botContent = document.querySelectorAll(".bottom-content .text-content");
 
 botContent.forEach(function(item){
-  const content = Object.values(siteContent["main-content"])
   const h4 = item.querySelector("h4");
   const p = item.querySelector("p");
 
