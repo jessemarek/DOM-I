@@ -40,3 +40,125 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+//********************************* TASK 1 IMG SRCs *************************************************
+const ctaImg = document.getElementById("cta-img");
+ctaImg.setAttribute("src", siteContent["cta"]["img-src"]);
+
+const midImg = document.getElementById("middle-img");
+midImg.setAttribute("src", siteContent["main-content"]["middle-img-src"]);
+
+//**************************** TASK 2 FILLING IN THE HTML WITH THE JSON OBJECT************************
+
+//Site Imgs
+
+//Logo in Nav
+const logoImg = document.querySelector("#logo-img");
+logoImg.src = siteContent["nav"]["img-src"];
+
+//Header Img
+const headerImg = document.querySelector("#cta-img");
+headerImg.src = siteContent["cta"]["img-src"];
+
+//Middle Img
+const middleImg = document.querySelector("#middle-img");
+middleImg.src = siteContent["main-content"]["middle-img-src"];
+
+//Nav Links
+const navLinks = document.querySelectorAll("nav a");
+navLinks.forEach(function(item, index){
+  item.textContent = siteContent["nav"][`nav-item-${index + 1}`];
+});
+
+//CTA text
+const ctaText = document.querySelector(".cta-text h1");
+ctaText.innerHTML = siteContent.cta["h1"].replace(/ /g, '<br>');
+const ctaBtn = document.querySelector(".cta-text button").textContent = siteContent["cta"]["button"];
+
+//Main Content
+
+//Top Content
+const topContent = document.querySelectorAll(".top-content .text-content");
+let count = 0;
+const content = Object.values(siteContent["main-content"])
+
+topContent.forEach(function(item){
+  const h4 = item.querySelector("h4");
+  const p = item.querySelector("p");
+
+  h4.textContent = content[count++];
+  p.textContent = content[count++];
+});
+
+//Increment past the middle img 
+count++;
+
+//Bottom Content
+const botContent = document.querySelectorAll(".bottom-content .text-content");
+
+botContent.forEach(function(item){
+  const h4 = item.querySelector("h4");
+  const p = item.querySelector("p");
+
+  h4.textContent = content[count++];
+  p.textContent = content[count++];
+});
+
+//Contact Section
+const contact = document.querySelector(".contact");
+
+const contactH4 = contact.querySelector("h4");
+contactH4.textContent = siteContent["contact"]["contact-h4"];
+
+const contactPs = contact.querySelectorAll("p").forEach(function(item, index){
+  item.textContent = Object.values(siteContent["contact"])[index + 1];
+});
+
+//Footer
+const footer = document.querySelector("footer p").textContent = siteContent["footer"]["copyright"];
+
+//******************** TASK 3!!! ************************************************************************
+
+//Nav text color = green
+navLinks.forEach(function(item){
+  item.style.color = "green";
+});
+
+//New links using .appendChild() and .prepend()
+const nav = document.querySelector("nav");
+
+//.appendChild()
+const appendLink = document.createElement("a");
+appendLink.href = "#";
+appendLink.textContent = "Append Link";
+appendLink.style.color = "green";
+nav.appendChild(appendLink);
+
+//.prepend()
+const prependLink = document.createElement("a");
+prependLink.href = "#";
+prependLink.textContent = "Prepend Link";
+prependLink.style.color = "green";
+nav.prepend(prependLink);
+
+//STRETCH GOAL
+const button = document.querySelector(".cta button");
+button.addEventListener("click", myButton);
+
+function myButton(){
+  const body = document.querySelector("body");
+
+  const hexArr = ["0","1","2","3",
+                  "4","5","6","7",
+                  "8","9","A","B",
+                  "C","D","E","F"];
+  let hexCode = "#";
+
+  for(let i = 0; i < 6; i++){
+    let random = Math.floor(Math.random() * hexArr.length);
+    hexCode += hexArr[random];
+  }
+
+  button.textContent = `HexCode: ${hexCode}`;
+  body.style.backgroundColor = `${hexCode}`;
+}
